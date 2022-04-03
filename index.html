@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Email Template</title>
+  </head>
+  <body>
+      <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+          <h1>Contact us</h1>
+          <input id="name" type="text" placeholder="name" required><br />
+          <input id="email" type="email" placeholder="email" required/><br />
+          <input id="phone" type="text" placeholder="phone no" required/><br />
+          <textarea class="message" cols="30" rows="10" placeholder="message"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      Email.send({
+        Host : "smtp.gmail.com",
+        Username : "nizbourk@gmail.com",
+        Password : "nizbourk1970",
+        To : 'nizbourk@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "new contact form coso",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+    </script>
+  </body>
+</html>
